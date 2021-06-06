@@ -35,5 +35,15 @@ public class UserService {
 			i++;
 		} //end of for each loop
 	} //end of displayUserArray
+	
+	public static User validateUser (String username, String password) {
+		for (User user : Assignment4App.users) {
+			if (user.getUsername().equalsIgnoreCase(username) &&
+					user.getPassword().equals(password)) {
+				return user;
+			} //end if block
+		} //end of for-each block
+		return null;	//no match found
+	} //end of validateUser
 
 } //end of UserService class
