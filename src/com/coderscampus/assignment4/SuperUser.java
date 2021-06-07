@@ -7,5 +7,5 @@ public class SuperUser extends User {
 		this.setPassword(password);
 		this.setName(name);
 		this.setRole("super_user");
-	}
+	} //end of 3-argument SuperUser constructor
 } //end of SuperUser class

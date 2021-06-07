@@ -16,9 +16,22 @@ public class UserService {
 			String line = null;
 			int i = 0;	//index for User array
 			while ((line = reader.readLine()) != null) {
-				users[i] = new User(line.split(", "));
+//				users[i] = new User(line.split(", "));
+				String[] userData = line.split(", ");
+				if (userData[3].equalsIgnoreCase("normal_user")) {
+					users[i] = new User(userData[0],
+										userData[1],
+										userData[2]); //load User object in User array
+				} else {
+					users[i] = new SuperUser(userData[0],
+											 userData[1],
+											 userData[2]); //load SuperUser object in User array
+				} //end if-else block
+				
+
 				/* Test code to display contents of user[] object */
 //				System.out.println(users[i]);
+				
 				i++;	//increment index to next User array item
 			} //end of while loop
 		} //end of try block

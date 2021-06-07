@@ -16,9 +16,16 @@ public class Assignment4App {
 	static final String UPDATE_PASSWORD_PROMPT = "Please type in your new password:";
 	static final String UPDATE_NAME_PROMPT = "Please type in your new name:";
 	static final String SUPERUSER_LOGIN_PROMPT = "Which user would you like to loging as? (Type in a valid username):";
+	static final String OPTION_PROMPT = "Please choose from the following options:";
+	static final String CHOOSE_NEW_USER = "(0) Log in as another user";
+	static final String UPDATE_USERNAME = "(1) Update username";
+	static final String UPDATE_PASSWORD = "(2) Update password";
+	static final String UPDATE_NAME = "(3) Update name";
+	static final String EXIT_OPTION = "(4) Exit";
+	static final String INVALID_OPTION_PROMPT = "Invalid option, please try again";
 	public static User[] users = new User[20];
 	public static Scanner scanner = new Scanner(System.in);
-//	private UserService userService = new UserService();
+
 	
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 		UserService.loadUsersArray(users);
@@ -28,6 +35,8 @@ public class Assignment4App {
 		int loginAttempts = 0;
 		boolean validLogin = false;
 		User validatedUser = null;
+		
+		/* Log in user based on credentials found in users.txt file */
 		
 		while (validatedUser == null && loginAttempts < MAX_TRIES) {
 			System.out.println(EMAIL_PROMPT);
@@ -50,13 +59,86 @@ public class Assignment4App {
 			} //end of outer else block
 		} //end of while loop
 
+		/* Display user options based on the type of user credentials that was used (normal_user vs super_user) */
 		if (validatedUser != null) {
-			System.out.println(validatedUser);
-		} else {
-			System.out.println("not able to log in");
-		}
+			int selectedOption = 9;
+			while (selectedOption != 4) {
+				selectedOption = displayUserOptions(validatedUser);
+				switch (selectedOption) {
+					case 0:
+						if (validatedUser.getRole().equals("super_user")) {
+						System.out.println("option 0 selected");
+						} else {
+							System.out.println(INVALID_OPTION_PROMPT);
+						}
+						break;
+					case 1:
+						System.out.println("option 1 selected");
+						updateUsername(validatedUser);
+						UserService.displayUserArray(users);
+						break;
+					case 2:
+						System.out.println("option 2 selected");
+						updatePassword(validatedUser);
+						UserService.displayUserArray(users);
+						break;
+					case 3:
+						System.out.println("option 3 selected");
+						updateName(validatedUser);
+						UserService.displayUserArray(users);
+						break;
+					case 4:
+						System.out.println("option 4 selected");
+						break;
+					default:			
+						System.out.println("default/invalid option selected");
+						System.out.println(INVALID_OPTION_PROMPT);
+				
+				} //end of switch block
+				
+			} //end of while loop
+			
+			/* sort and rewrite users.txt file */
+					
+					
+					
+			
+			
+		} //end of if (validatedUser) block
 		
-
+		System.out.println("end of main program");
 	} //end of main method
+	
+	private static int displayUserOptions(User validatedUser) {
+		System.out.println("----------");
+		System.out.println(OPTION_PROMPT);
+		if (validatedUser.getRole().equals("super_user")) {
+			System.out.println(CHOOSE_NEW_USER);
+		} //option 0 is only for super users
+		System.out.println(UPDATE_USERNAME);
+		System.out.println(UPDATE_PASSWORD);
+		System.out.println(UPDATE_NAME);
+		System.out.println(EXIT_OPTION);
+		String option = scanner.nextLine();
+		return Integer.parseInt(option);
+	} //end of displayUserOptions method
+	
+	private static void updateUsername(User validatedUser) {
+		System.out.println(UPDATE_EMAIL_PROMPT);
+		String username = scanner.nextLine();
+		validatedUser.setUsername(username);		
+	} //end of updateUserName method
+	
+	private static void updatePassword(User validatedUser) {
+		System.out.println(UPDATE_PASSWORD_PROMPT);
+		String password = scanner.nextLine();
+		validatedUser.setPassword(password);
+	} //end of updatePassword method
+	
+	private static void updateName(User validatedUser) {
+		System.out.println(UPDATE_NAME_PROMPT);
+		String name = scanner.nextLine();
+		validatedUser.setName(name);
+	} //end of updateName method
 
 } //end of Assignment4App

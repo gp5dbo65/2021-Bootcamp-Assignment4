@@ -60,6 +60,7 @@ public class User implements Comparable<User>{
 		return "User[" + i + "]: username=" + username + ", password=" + password +
 				", name=" + name + ", role=" + role;
 	}
+	
 	@Override
 	public String toString() {
 		return "User: username=" + username + ", password=" + password +
