@@ -54,13 +54,19 @@ public class User implements Comparable<User>{
 		this.setRole(userInfo[3]);
 	} //1-argument String[] User constructor
 	
-	/* Override Methods */
+	/* This method is used to format the output string for the users.txt file */
+	public String writeOutput() {
+		return username + ", " + password + ", " +
+				name + ", " + role + "\n";
+	} //end of writeOutput method
+
 	/* Use this toString method if you plan to pass an index to display */
 	public String toString(int i) {
 		return "User[" + i + "]: username=" + username + ", password=" + password +
 				", name=" + name + ", role=" + role;
 	} //end of toString(int i) method
-	
+
+	/* Override Methods */
 	@Override
 	public String toString() {
 		return "User: username=" + username + ", password=" + password +
@@ -69,12 +75,14 @@ public class User implements Comparable<User>{
 	
 	@Override
 	public int compareTo(User that) {
-		int compareValue = that.getRole().compareTo(this.getRole()); // sort roles in descending order (super before normal)
-		if (compareValue == 0) {	// this & that User objects have the same role
-			compareValue = this.getUsername().compareTo(that.getUsername()); // sort username in ascending order
+		// sort roles in descending order (super before normal)
+		int compareValue = that.getRole().compareTo(this.getRole());
+		// this & that User objects have the same role
+		if (compareValue == 0) {
+			// sort username (email) in ascending order
+			compareValue = this.getUsername().compareTo(that.getUsername());
 		}
 		return compareValue;
 	} //end of compareTo method
-	
 	
 } // end of User class

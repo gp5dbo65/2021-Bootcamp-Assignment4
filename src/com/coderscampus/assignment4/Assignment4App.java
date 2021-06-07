@@ -16,6 +16,7 @@ public class Assignment4App {
 	static final String UPDATE_PASSWORD_PROMPT = "Please type in your new password:";
 	static final String UPDATE_NAME_PROMPT = "Please type in your new name:";
 	static final String SUPERUSER_LOGIN_PROMPT = "Which user would you like to loging as? (Type in a valid username):";
+
 	static final String OPTION_PROMPT = "Please choose from the following options:";
 	static final String CHOOSE_NEW_USER = "(0) Log in as another user";
 	static final String UPDATE_USERNAME = "(1) Update username";
@@ -23,7 +24,8 @@ public class Assignment4App {
 	static final String UPDATE_NAME = "(3) Update name";
 	static final String EXIT_OPTION = "(4) Exit";
 	static final String INVALID_OPTION_PROMPT = "Invalid option, please try again";
-	public static User[] users = new User[20];
+
+	public static User[] users = new User[20]; //<
 	public static Scanner scanner = new Scanner(System.in);
 
 	
@@ -33,7 +35,7 @@ public class Assignment4App {
 //		UserService.displayUserArray(users);
 		
 		int loginAttempts = 0;
-		boolean validLogin = false;
+//		boolean validLogin = false;
 		User validatedUser = null;
 		
 		/* Log in user based on credentials found in users.txt file */
@@ -47,12 +49,12 @@ public class Assignment4App {
 			
 			if (validatedUser != null) {
 				System.out.println(WELCOME_MESSAGE + validatedUser.getName());
-				validLogin = true;
+//				validLogin = true;
 			} else {
 				loginAttempts++;
 				if (loginAttempts >= MAX_TRIES) {
 					System.out.println(LOCKOUT_MESSAGE);
-					validLogin = false;
+//					validLogin = false;
 				} else {
 					System.out.println(INVALID_PROMPT);
 				} //end of inner else block
@@ -67,31 +69,33 @@ public class Assignment4App {
 				switch (selectedOption) {
 					case 0:
 						if (validatedUser.getRole().equals("super_user")) {
-						System.out.println("option 0 selected");
+						System.out.println("Option 0 selected");
+						
 						} else {
 							System.out.println(INVALID_OPTION_PROMPT);
 						}
 						break;
 					case 1:
-						System.out.println("option 1 selected");
+						System.out.println("Option 1 selected");
 						updateUsername(validatedUser);
-						UserService.displayUserArray();
+//						UserService.displayUserArray();
 						break;
 					case 2:
-						System.out.println("option 2 selected");
+						System.out.println("Option 2 selected");
 						updatePassword(validatedUser);
-						UserService.displayUserArray();
+//						UserService.displayUserArray();
 						break;
 					case 3:
-						System.out.println("option 3 selected");
+						System.out.println("Option 3 selected");
 						updateName(validatedUser);
-						UserService.displayUserArray();
+//						UserService.displayUserArray();
+						System.out.println(WELCOME_MESSAGE + validatedUser.getName());
 						break;
 					case 4:
-						System.out.println("option 4 selected");
+						System.out.println("Option 4 selected");
+						scanner.close();
 						break;
 					default:			
-						System.out.println("default/invalid option selected");
 						System.out.println(INVALID_OPTION_PROMPT);
 				
 				} //end of switch block

@@ -19,16 +19,13 @@ public class UserService {
 			String line = null;
 			int i = 0;	//index for User array
 			while ((line = reader.readLine()) != null) {
-//				users[i] = new User(line.split(", "));
 				String[] userData = line.split(", ");
 				if (userData[3].equalsIgnoreCase("normal_user")) {
-					users[i] = new User(userData[0],
-										userData[1],
-										userData[2]); //load User object in User array
+					/* load User object in User array */
+					users[i] = new User(userData[0], userData[1], userData[2]);
 				} else {
-					users[i] = new SuperUser(userData[0],
-											 userData[1],
-											 userData[2]); //load SuperUser object in User array
+					/* load SuperUser object in User array */
+					users[i] = new SuperUser(userData[0], userData[1], userData[2]);
 				} //end if-else block
 				
 
@@ -49,12 +46,16 @@ public class UserService {
 		BufferedWriter writer = null;
 		
 		try {
-//			writer = new BufferedWriter(new FileWriter(fileName));
-			
+			writer = new BufferedWriter(new FileWriter(fileName));
+			// sort the Users array by role then by username
 			Arrays.sort(Assignment4App.users);
 
 			/* Test code to display contents of user[] object */
-			displayUserArray();
+//			displayUserArray();
+			
+			for (User user : Assignment4App.users) {
+				writer.write(user.writeOutput());
+			} //end for-each block
 
 		} //end of try block
 		finally {
@@ -90,9 +91,4 @@ public class UserService {
 		return null;	//no match found
 	} //end of swapToNewUser method
 
-	public static String writeOutput (User user) {
-		return user.getName() + ", " + user.getPassword() + ", " +
-				user.getUsername() + ", " + user.getRole();
-	} //end of writeOutput method
-	
 } //end of UserService class
