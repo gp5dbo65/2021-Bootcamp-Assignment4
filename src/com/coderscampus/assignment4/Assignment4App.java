@@ -39,7 +39,6 @@ public class Assignment4App {
 		User validatedUser = null;
 		
 		/* Log in user based on credentials found in users.txt file */
-		
 		while (validatedUser == null && loginAttempts < MAX_TRIES) {
 			System.out.println(EMAIL_PROMPT);
 			String username = scanner.nextLine();
@@ -57,8 +56,8 @@ public class Assignment4App {
 //					validLogin = false;
 				} else {
 					System.out.println(INVALID_PROMPT);
-				} //end of inner else block
-			} //end of outer else block
+				} //end of else block
+			} //end of inner else block
 		} //end of while loop
 
 		/* Display user options based on the type of user credentials that was used (normal_user vs super_user) */
@@ -78,16 +77,19 @@ public class Assignment4App {
 					case 1:
 						System.out.println("Option 1 selected");
 						updateUsername(validatedUser);
+						/* Test to see if the User[] was properly loaded */
 //						UserService.displayUserArray();
 						break;
 					case 2:
 						System.out.println("Option 2 selected");
 						updatePassword(validatedUser);
+						/* Test to see if the User[] was properly loaded */
 //						UserService.displayUserArray();
 						break;
 					case 3:
 						System.out.println("Option 3 selected");
 						updateName(validatedUser);
+						/* Test to see if the User[] was properly loaded */
 //						UserService.displayUserArray();
 						System.out.println(WELCOME_MESSAGE + validatedUser.getName());
 						break;
@@ -97,20 +99,15 @@ public class Assignment4App {
 						break;
 					default:			
 						System.out.println(INVALID_OPTION_PROMPT);
-				
 				} //end of switch block
 				
 			} //end of while loop
 			
 			/* sort and rewrite users.txt file */
 			UserService.outputUserFile();					
-
-					
-			
 			
 		} //end of if (validatedUser) block
 		
-		System.out.println("end of main program");
 	} //end of main method
 	
 	private static int displayUserOptions(User validatedUser) {
@@ -145,4 +142,4 @@ public class Assignment4App {
 		validatedUser.setName(name);
 	} //end of updateName method
 
-} //end of Assignment4App
+} //end of Assignment4App class (main program)

@@ -27,7 +27,6 @@ public class UserService {
 					/* load SuperUser object in User array */
 					users[i] = new SuperUser(userData[0], userData[1], userData[2]);
 				} //end if-else block
-				
 
 				/* Test code to display contents of user[] object */
 //				System.out.println(users[i]);
@@ -53,6 +52,7 @@ public class UserService {
 			/* Test code to display contents of user[] object */
 //			displayUserArray();
 			
+			/* Process the user array and update the users.txt file */
 			for (User user : Assignment4App.users) {
 				writer.write(user.writeOutput());
 			} //end for-each block
@@ -85,7 +85,7 @@ public class UserService {
 	public static User swapToNewUser (String username) {
 		for (User user : Assignment4App.users ) {
 			if (user.getName().equalsIgnoreCase(username)) {
-				return user;
+				return user; //match found
 			} //end if block
 		} //end of for-each block
 		return null;	//no match found
