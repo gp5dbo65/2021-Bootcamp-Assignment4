@@ -25,7 +25,7 @@ public class Assignment4App {
 	static final String EXIT_OPTION = "(4) Exit";
 	static final String INVALID_OPTION_PROMPT = "Invalid option, please try again";
 
-	public static User[] users = new User[20]; //<
+	public static User[] users = new User[20];
 	public static Scanner scanner = new Scanner(System.in);
 
 	
