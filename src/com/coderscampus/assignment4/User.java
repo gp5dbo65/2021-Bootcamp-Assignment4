@@ -55,11 +55,11 @@ public class User implements Comparable<User>{
 	} //1-argument String[] User constructor
 	
 	/* Override Methods */
-	/* Use this toString method if you plan to pass an index to display*/
+	/* Use this toString method if you plan to pass an index to display */
 	public String toString(int i) {
 		return "User[" + i + "]: username=" + username + ", password=" + password +
 				", name=" + name + ", role=" + role;
-	}
+	} //end of toString(int i) method
 	
 	@Override
 	public String toString() {
@@ -69,10 +69,9 @@ public class User implements Comparable<User>{
 	
 	@Override
 	public int compareTo(User that) {
-		int compareValue = that.getRole().compareTo(this.getRole());
+		int compareValue = that.getRole().compareTo(this.getRole()); // sort roles in descending order (super before normal)
 		if (compareValue == 0) {	// this & that User objects have the same role
-			compareValue = that.getUsername().compareTo(this.getUsername()); // set compareValue by Username
-			//TODO: May have to add logic to compare name of user if role & username are duplicates
+			compareValue = this.getUsername().compareTo(that.getUsername()); // sort username in ascending order
 		}
 		return compareValue;
 	} //end of compareTo method

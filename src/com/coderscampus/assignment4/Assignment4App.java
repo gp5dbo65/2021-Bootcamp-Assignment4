@@ -75,17 +75,17 @@ public class Assignment4App {
 					case 1:
 						System.out.println("option 1 selected");
 						updateUsername(validatedUser);
-						UserService.displayUserArray(users);
+						UserService.displayUserArray();
 						break;
 					case 2:
 						System.out.println("option 2 selected");
 						updatePassword(validatedUser);
-						UserService.displayUserArray(users);
+						UserService.displayUserArray();
 						break;
 					case 3:
 						System.out.println("option 3 selected");
 						updateName(validatedUser);
-						UserService.displayUserArray(users);
+						UserService.displayUserArray();
 						break;
 					case 4:
 						System.out.println("option 4 selected");
@@ -99,8 +99,8 @@ public class Assignment4App {
 			} //end of while loop
 			
 			/* sort and rewrite users.txt file */
-					
-					
+			UserService.outputUserFile();					
+
 					
 			
 			
