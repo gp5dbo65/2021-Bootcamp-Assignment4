@@ -129,25 +129,19 @@ public class Assignment4App {
 	private static void updateUsername(User validatedUser) {
 		System.out.println(UPDATE_EMAIL_PROMPT);
 		String username = scanner.nextLine();
-//		if (username != "\n") {
-			validatedUser.setUsername(username);
-//		}
+		validatedUser.setUsername(username);
 	} //end of updateUserName method
 	
 	private static void updatePassword(User validatedUser) {
 		System.out.println(UPDATE_PASSWORD_PROMPT);
 		String password = scanner.nextLine();
-//		if (password != null || password != "\n") {
-			validatedUser.setPassword(password);
-//		}
+		validatedUser.setPassword(password);
 	} //end of updatePassword method
 	
 	private static void updateName(User validatedUser) {
 		System.out.println(UPDATE_NAME_PROMPT);
 		String name = scanner.nextLine();
-//		if (name != null || name != "\n") {
-			validatedUser.setName(name);
-//		}
+		validatedUser.setName(name);
 	} //end of updateName method
 
 } //end of Assignment4App class (main program)
