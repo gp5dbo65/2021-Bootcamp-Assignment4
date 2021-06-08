@@ -84,7 +84,7 @@ public class UserService {
 	
 	public static User swapToNewUser (String username) {
 		for (User user : Assignment4App.users ) {
-			if (user.getName().equalsIgnoreCase(username)) {
+			if (user.getUsername().equalsIgnoreCase(username)) {
 				return user; //match found
 			} //end if block
 		} //end of for-each block
