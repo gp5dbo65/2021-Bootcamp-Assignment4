@@ -3,6 +3,12 @@ package com.coderscampus.assignment4.domain;
 public class SuperUser extends User {
 
 	public SuperUser (String username, String password, String name) {
+//		super();
+//		this.username = username;
+//		this.password = password;
+//		this.name = name;
+//		this.role = "super_user";
+		
 		this.setUsername(username);
 		this.setPassword(password);
 		this.setName(name);

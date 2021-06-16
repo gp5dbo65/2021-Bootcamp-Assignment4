@@ -34,24 +34,20 @@ public class User implements Comparable<User>{
 	
 	/* Constructors */
 	public User() {
-		this.setUsername(null);
-		this.setPassword(null);
-		this.setName(null);
-		this.setRole(null);
 	} //No-argument User constructor (needed this for SuperUser class)
 	
 	public User (String username, String password, String name) {
-		this.setUsername(username);
-		this.setPassword(password);
-		this.setName(name);
-		this.setRole("normal_user"); //normal_user is default role
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.role = "normal_user"; //normal_user is default role
 	} //3-argument User constructor
 	
 	public User (String[] userInfo) {
-		this.setUsername(userInfo[0]);
-		this.setPassword(userInfo[1]);
-		this.setName(userInfo[2]);
-		this.setRole(userInfo[3]);
+		this.username = userInfo[0];
+		this.password = userInfo[1];
+		this.name = userInfo[2];
+		this.role = userInfo[3];
 	} //1-argument String[] User constructor
 	
 	/* This method is used to format the output string for the users.txt file */
