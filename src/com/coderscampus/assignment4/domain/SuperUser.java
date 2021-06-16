@@ -1,4 +1,4 @@
-package com.coderscampus.assignment4;
+package com.coderscampus.assignment4.domain;
 
 public class SuperUser extends User {
 

@@ -4,6 +4,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
+import com.coderscampus.assignment4.domain.User;
+import com.coderscampus.assignment4.services.UserService;
+
 public class Assignment4App {
 	/* class variables and constants */
 	public static final int MAX_TRIES = 5;

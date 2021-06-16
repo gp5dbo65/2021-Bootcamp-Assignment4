@@ -1,4 +1,4 @@
-package com.coderscampus.assignment4;
+package com.coderscampus.assignment4.services;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,6 +7,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
+
+import com.coderscampus.assignment4.Assignment4App;
+import com.coderscampus.assignment4.domain.SuperUser;
+import com.coderscampus.assignment4.domain.User;
 
 public class UserService {
 

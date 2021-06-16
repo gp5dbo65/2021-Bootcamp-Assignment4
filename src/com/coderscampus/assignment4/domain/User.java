@@ -1,4 +1,4 @@
-package com.coderscampus.assignment4;
+package com.coderscampus.assignment4.domain;
 
 public class User implements Comparable<User>{
 	private String username;
