@@ -1,10 +1,17 @@
 package com.coderscampus.assignment4.domain;
 
 public class User implements Comparable<User>{
-	private String username;
-	private String password;
-	private String name;
-	private String role;
+	/* Use this visibilty for SuperUser class using "=" to assign values */
+	protected String username;
+	protected String password;
+	protected String name;
+	protected String role;
+	
+	/* Use this visibility for SuperUser class using the "setters" to assign values */
+//	private String username;
+//	private String password;
+//	private String name;
+//	private String role;
 	
 	/* Getter and Setter Methods */
 	public String getUsername() {
