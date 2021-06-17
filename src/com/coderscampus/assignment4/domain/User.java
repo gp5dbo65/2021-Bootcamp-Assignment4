@@ -1,17 +1,13 @@
 package com.coderscampus.assignment4.domain;
 
 public class User implements Comparable<User>{
-	/* Use this visibilty for SuperUser class using "=" to assign values */
+	/* Use the protected accessibility modifier when dealing with inheritance
+	 * between parent and child classes. Avoid using package "no modifier"
+	 * visibility.                                                         */
 	protected String username;
 	protected String password;
 	protected String name;
 	protected String role;
-	
-	/* Use this visibility for SuperUser class using the "setters" to assign values */
-//	private String username;
-//	private String password;
-//	private String name;
-//	private String role;
 	
 	/* Getter and Setter Methods */
 	public String getUsername() {
